@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QR Code Generator</h1>
+            <p>Enter a URL below to generate a QR code.</p>
+        </header>
+        <main>
+            <form action="/generate" method="post" class="form">
+                <div class="input-group">
+                    <label for="urlInput">Enter URL:</label>
+                    <input type="text" id="urlInput" name="urlInput" placeholder="https://example.com" required>
+                </div>
+                <button type="submit" class="btn">Generate QR Code</button>
+            </form>
+            <% if (qrImage) { %>
+                <div class="qr-code">
+                    <img src="<%= qrImage %>" alt="Generated QR Code">
+                    <p>Right-click and save the image.</p>
+                </div>
+            <% } %>
+        </main>
+    </div>
+</body>
+</html>
